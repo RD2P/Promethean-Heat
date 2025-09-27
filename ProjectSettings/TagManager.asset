@@ -50,5 +50,11 @@ TagManager:
   - name: Water
     uniqueID: 1757202175
     locked: 0
+  - name: Mountain
+    uniqueID: 2663424321
+    locked: 0
+  - name: Player
+    uniqueID: 2108160171
+    locked: 0
   m_RenderingLayers:
   - Default
