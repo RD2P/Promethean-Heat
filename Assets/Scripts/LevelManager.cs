@@ -6,6 +6,8 @@ public class LevelManager : MonoBehaviour
     public void Load_Game_Scene()
     {
         int curentSceneIdx = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("current index is " + curentSceneIdx);
+
         SceneManager.LoadScene(curentSceneIdx + 1);
     }
 
