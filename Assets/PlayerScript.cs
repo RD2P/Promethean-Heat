@@ -1,7 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    public Rigidbody2D rb;
+    public float speed;
+    public Vector2 moveDirection;
+
+    public InputActionReference move;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,14 +18,11 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.position += Vector3.right * 2;
-        }
+        moveDirection = move.action.ReadValue<Vector2>();
+    }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            transform.position -= Vector3.right * 2;
-        }
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
     }
 }
