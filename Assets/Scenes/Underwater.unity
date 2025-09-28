@@ -12376,6 +12376,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[368].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 1844313877364365866, guid: ac1b64899e51a0f44ae57e94e6865e40, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3615833877486769615, guid: ac1b64899e51a0f44ae57e94e6865e40, type: 3}
       propertyPath: m_ChunkCullingBounds.x
       value: 0.25
@@ -12575,22 +12579,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 776452474667318909, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 789076082745534245, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
-      propertyPath: playerBoxCollider
-      value: 
-      objectReference: {fileID: 8883806706722000605}
-    - target: {fileID: 1607125539860699725, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1607125539860699725, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2328044805716505020, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.8
@@ -12643,11 +12631,6 @@ PrefabInstance:
 --- !u!95 &8883806706722000602 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7010812367891805085, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
-  m_PrefabInstance: {fileID: 8883806706722000601}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &8883806706722000605 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1607125539860699725, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
   m_PrefabInstance: {fileID: 8883806706722000601}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
