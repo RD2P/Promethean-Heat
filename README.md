@@ -8,10 +8,10 @@ A 2D platformer game built in Unity, featuring multi-world exploration with uniq
 
 ## 👥 Authors
 
-- **@RD2P**: Raphael De Los Reyes
-- **@Weunbeatable**: Josh O
-- **@R4nd0mDude**: Mel
-- **@mr200paul**: Paul
+- **[@RD2P](https://github.com/RD2P)**: Raphael De Los Reyes - [LinkedIn](https://www.linkedin.com/in/glennraphaeldlr)
+- **[@Weunbeatable](https://github.com/Weunbeatable)**: Josh Olatidoye - [LinkedIn](https://www.linkedin.com/in/joshua-o-b132aa93/)
+- **[@R4nd0mDude](https://github.com/R4nd0mDude)**: Mel
+- **[@mr200paul](https://github.com/mr200paul)**: Paul
 
 ## ✨ Features
 
