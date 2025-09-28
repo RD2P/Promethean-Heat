@@ -19,7 +19,8 @@ public class PlayerScript : MonoBehaviour
     Vector2 movementInput;
     [SerializeField] public Animator animator;
     [SerializeField] public SpriteRenderer playerRenderer;
-    
+
+    int ShiningCount = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
