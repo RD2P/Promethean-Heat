@@ -17,15 +17,18 @@ public class PlayerScript : MonoBehaviour
     public float lowJumpMultiplier = 2f; 
     [SerializeField] BoxCollider2D playerBoxCollider;
     Vector2 movementInput;
-
-    int ShiningCount = 0; 
+    [SerializeField] public Animator animator;
+    [SerializeField] public SpriteRenderer playerRenderer;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
         rb = gameObject.GetComponent<Rigidbody2D>();
-
-        //speed = 3f;
+        animator = gameObject.GetComponent<Animator>();
+        playerRenderer = gameObject.GetComponent<SpriteRenderer>();
+        speed = 3f;
+        jumpforce = 5f;
         isJumping = false;
     }
 
