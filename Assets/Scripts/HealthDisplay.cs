@@ -12,12 +12,21 @@ public class HealthDisplay : MonoBehaviour
     [SerializeField] public Health playerHealth; // reference in inspector 
     [SerializeField] Image referenceSprite;// reference to image 
 
+    bool triggerDamage; 
 
-
-    void Start()
+    private void OnEnable()
     {
-       
+        Health.onTakeDamage += Health_onTakeDamage;
+    }
 
+    private void Health_onTakeDamage()
+    {
+       triggerDamage = true;
+    }
+
+    private void OnDisable()
+    {
+        Health.onTakeDamage -= Health_onTakeDamage;
     }
 
     private void Update()
@@ -25,13 +34,14 @@ public class HealthDisplay : MonoBehaviour
         //playersCurrentHealth = 5;
         if (healthSprites.Count >= 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (triggerDamage == true)
             {
                 healthSprites[playersCurrentHealth -1].enabled = false;
                 
                 //healthSprites.RemoveAt(playersCurrentHealth - 1);
                 playersCurrentHealth--;
                 Debug.Log("after removing " + healthSprites.Count);
+                triggerDamage = false; 
             }
             if (Input.GetMouseButtonDown(1))
             {
