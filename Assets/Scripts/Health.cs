@@ -26,6 +26,7 @@ public class Health : MonoBehaviour
             if (current_Health == 0)
             {
                 onDie?.Invoke();
+                Destroy(gameObject);
             }
             // Debug.Log(health);
         }
