@@ -62,5 +62,8 @@ TagManager:
   - name: Enemy
     uniqueID: 3209439535
     locked: 0
+  - name: Shining Piece
+    uniqueID: 2465764865
+    locked: 0
   m_RenderingLayers:
   - Default
