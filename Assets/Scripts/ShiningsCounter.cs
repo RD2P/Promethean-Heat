@@ -6,11 +6,11 @@ public class ShiningsCounter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI counter;
     public int counterIndex = 0;
-    GameObject playeref; 
+    [SerializeField] GameObject playeref; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        counter = gameObject.GetComponent<TextMeshProUGUI>();
+
         playeref = GameObject.FindGameObjectWithTag("Player"); 
     }
 
@@ -22,9 +22,11 @@ public class ShiningsCounter : MonoBehaviour
             if (playeref.GetComponent<PlayerScript>() != null)
             {
                 counterIndex = playeref.GetComponent<PlayerScript>().GetShiningCount();
+                Debug.Log("Counter value is "+ counterIndex);
+                counter.text = counterIndex.ToString();
             }
         }
         
-        counter.text = counterIndex.ToString();
+       
     }
 }

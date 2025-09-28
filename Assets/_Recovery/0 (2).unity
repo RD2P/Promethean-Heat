@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &39301063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7483341300921732382, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
+  m_PrefabInstance: {fileID: 8883806706722000601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &82588505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1785,6 +1796,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 529410006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1901635140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8015854103935681243, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
+  m_PrefabInstance: {fileID: 8883806706722000601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1901635145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901635140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117317a3f3f299d4db1378056668298c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShiningsCounter
+  counter: {fileID: 39301063}
+  counterIndex: 0
+  playeref: {fileID: 0}
 --- !u!1 &1936200801
 GameObject:
   m_ObjectHideFlags: 0
@@ -13192,6 +13223,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7483341300921732382, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7861840968450622281, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13219,7 +13254,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8015854103935681243, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1901635145}
   m_SourcePrefab: {fileID: 100100000, guid: b23af7fc24c80cf49a00d69deefab169, type: 3}
 --- !u!95 &8883806706722000602 stripped
 Animator:
