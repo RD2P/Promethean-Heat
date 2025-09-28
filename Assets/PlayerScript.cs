@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     Vector2 movementInput;
     [SerializeField] public Animator animator;
     [SerializeField] public SpriteRenderer playerRenderer;
+    [SerializeField] AudioSource AudioSource;
 
     int ShiningCount = 0;
 
@@ -78,6 +79,7 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("attempted to jump");
             rb.AddForce(new Vector2(0f, (Physics2D.gravity.y * (jumpforce - 1)) * -1f), ForceMode2D.Impulse);
             isJumping = false;
+            AudioSource.Play();
         }
 
         
