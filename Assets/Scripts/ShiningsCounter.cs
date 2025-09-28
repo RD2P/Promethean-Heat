@@ -10,7 +10,6 @@ public class ShiningsCounter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        counter = gameObject.GetComponent<TextMeshProUGUI>();
         playeref = GameObject.FindGameObjectWithTag("Player"); 
     }
 
