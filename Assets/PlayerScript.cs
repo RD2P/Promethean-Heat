@@ -118,6 +118,6 @@ public class PlayerScript : MonoBehaviour
 
     public void SetShiningCount(int shiningCount)
     {
-        ShiningCount = shiningCount;
+        ShiningCount += shiningCount;
     }
 }

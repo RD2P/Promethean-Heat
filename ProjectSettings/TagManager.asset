@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - LevelManager
   layers:
   - Default
   - TransparentFX
@@ -64,6 +65,9 @@ TagManager:
     locked: 0
   - name: Shining Piece
     uniqueID: 2465764865
+    locked: 0
+  - name: Door
+    uniqueID: 2771031769
     locked: 0
   m_RenderingLayers:
   - Default
