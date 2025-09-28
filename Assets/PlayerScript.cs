@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,19 +8,24 @@ public class PlayerScript : MonoBehaviour
     public float speed;
     [SerializeField] public float jumpforce;
     public bool isJumping;
+    public bool isHoldingJump;
     public float moveHorizontal;
     public float moveVertical;
+
+    // boards to bits better jumping 
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f; 
     [SerializeField] BoxCollider2D playerBoxCollider;
-    Vector2 movementInput; 
-    
+    Vector2 movementInput;
+
+    int ShiningCount = 0; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
         rb = gameObject.GetComponent<Rigidbody2D>();
 
-        speed = 3f;
-        jumpforce = 5f;
+        //speed = 3f;
         isJumping = false;
     }
 
@@ -48,13 +54,14 @@ public class PlayerScript : MonoBehaviour
         {
             //playerBody.velocity += new Vector2(0f, jumpSpeed);
             Debug.Log("attempted to jump");
-            rb.AddForce(new Vector2(0f, jumpforce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0f, (Physics2D.gravity.y * (jumpforce - 1)) * -1f), ForceMode2D.Impulse);
             isJumping = false;
         }
 
-
+        
 
     }
+    
 
     public void OnMove(InputAction.CallbackContext value)
     {
@@ -69,25 +76,24 @@ public class PlayerScript : MonoBehaviour
 
         else
         {
-            if (value.started) { isJumping = true; }
+            if (value.started) { isJumping = true; 
+                isHoldingJump = false; 
+            }
+            else if (value.started && value.duration > 0.3f)
+            {
+                isJumping = true;
+                isHoldingJump = false;
+            }
         }
-
+       
+                    
     }
 
 
-   /* void OnTriggerEnter2D(Collider2D collison)
-    {
-        if (collison.gameObject.tag == "Platform")
-        {
-            isJumping = false;
-        }
-    }
+    public int GetShiningCount() => ShiningCount;
 
-    void OnTriggerExit2D(Collider2D collison)
+    public void SetShiningCount(int shiningCount)
     {
-        if (collison.gameObject.tag == "Platform")
-        {
-            isJumping = true;
-        }
-    }*/
+        ShiningCount = shiningCount;
+    }
 }
