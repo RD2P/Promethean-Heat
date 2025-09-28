@@ -28,8 +28,6 @@ public class PlayerScript : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         playerRenderer = gameObject.GetComponent<SpriteRenderer>();
-        speed = 3f;
-        jumpforce = 5f;
         isJumping = false;
     }
 
