@@ -9,7 +9,8 @@ public class PlayerScript : MonoBehaviour
     public bool isJumping;
     public float moveHorizontal;
     public float moveVertical;
-    BoxCollider2D boxCollider;
+    [SerializeField] BoxCollider2D playerBoxCollider;
+    Vector2 movementInput; 
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,20 +35,45 @@ public class PlayerScript : MonoBehaviour
     {   
         Debug.Log("Jump value is " + moveVertical);
         Debug.Log("isJumping: " + isJumping);
-        if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
+
+        Vector2 playerVelocity = new Vector2(movementInput.x * speed, rb.linearVelocityY);
+        rb.linearVelocity = playerVelocity;
+ /*       if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
         {
             rb.AddForce(new Vector2(moveHorizontal * speed, 0), ForceMode2D.Impulse);
-        }
-        
-        
-        if (!isJumping && moveVertical > 0.1f)
-        {
-            Debug.Log("Jump value is " + moveVertical);
-            Debug.Log("isJumping: " + isJumping);
+        }*/
 
-            rb.AddForce(new Vector2(0, moveVertical * jumpforce), ForceMode2D.Impulse);
+        // Jump logic
+        if (isJumping == true)
+        {
+            //playerBody.velocity += new Vector2(0f, jumpSpeed);
+            Debug.Log("attempted to jump");
+            rb.AddForce(new Vector2(0f, jumpforce), ForceMode2D.Impulse);
+            isJumping = false;
         }
+
+
+
     }
+
+    public void OnMove(InputAction.CallbackContext value)
+    {
+        //if (!isAlive) { return; }
+        movementInput = value.ReadValue<Vector2>();
+    }
+
+
+    public void OnJump(InputAction.CallbackContext value)
+    {
+        if (!playerBoxCollider.IsTouchingLayers(LayerMask.GetMask("Platforms"))) { return; }
+
+        else
+        {
+            if (value.started) { isJumping = true; }
+        }
+
+    }
+
 
    /* void OnTriggerEnter2D(Collider2D collison)
     {
