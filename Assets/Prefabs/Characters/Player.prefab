@@ -422,7 +422,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -444,7 +444,7 @@ SpriteRenderer:
   m_SortingLayerID: 1919960141
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -803321122, guid: 836ba81373ddf664c8a192783efe0ecd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3adbbfc71b852e64589fc3e05e85d2a4, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -489,7 +489,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.1, y: -0.8}
+  m_Offset: {x: -0.01, y: -0.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -499,7 +499,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.36, y: 0.09}
+  m_Size: {x: 0.28, y: 0.09}
   m_EdgeRadius: 0
 --- !u!50 &776452474667318909
 Rigidbody2D:
@@ -542,11 +542,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   rb: {fileID: 776452474667318909}
   speed: 3
-  jumpforce: 3
+  jumpforce: 2.1
   isJumping: 0
-  isHoldingJump: 0
-  moveHorizontal: 0
-  moveVertical: 0
+  isHoldingJump: 1
+  moveHorizontal: 1
+  moveVertical: 1
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   playerBoxCollider: {fileID: 1607125539860699725}
@@ -1190,6 +1190,7 @@ GameObject:
   - component: {fileID: 4708179701016425941}
   - component: {fileID: 1389223442401646041}
   - component: {fileID: 3628819621882959099}
+  - component: {fileID: 3014151926831692537}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1281,6 +1282,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3014151926831692537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8015854103935681243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117317a3f3f299d4db1378056668298c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShiningsCounter
+  counter: {fileID: 7483341300921732382}
+  counterIndex: 0
 --- !u!1 &8987771129801061269
 GameObject:
   m_ObjectHideFlags: 0
