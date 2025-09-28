@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 3031398337897922941}
   - component: {fileID: 2455831608883857222}
   - component: {fileID: 1477521433357998190}
-  - component: {fileID: 5992819130523689195}
+  - component: {fileID: 6358340652232765996}
+  - component: {fileID: 5483266501160546473}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Untagged
@@ -155,7 +156,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -219,7 +220,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5992819130523689195
+--- !u!114 &6358340652232765996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,6 +229,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6530301562867482040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a3d9ab383bacf4e94bafd009d8c0b2, type: 3}
+  m_Script: {fileID: 11500000, guid: ce9bce3359c2476458c261ae17ad1e46, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Demon
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  Damage: 1
+--- !u!114 &5483266501160546473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6530301562867482040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f247d0dd59bd3f9449990b08d057ca26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
