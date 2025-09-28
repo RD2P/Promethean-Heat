@@ -6,7 +6,7 @@ public class Shinings : MonoBehaviour
     [SerializeField] public GameObject PlayerRef;
     void Start()
     {
-        PlayerRef = GameObject.FindGameObjectWithTag()
+        //PlayerRef = GameObject.FindGameObjectWithTag()
     }
 
     // Update is called once per frame
