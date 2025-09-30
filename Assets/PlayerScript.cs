@@ -1,29 +1,66 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    
+    [Header("Player values")]
     public Rigidbody2D rb;
-    public float speed;
-    [SerializeField] public float jumpforce;
-    public bool isJumping;
-    public bool isHoldingJump;
-    public float moveHorizontal;
-    public float moveVertical;
-
-    // boards to bits better jumping 
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2f; 
     [SerializeField] BoxCollider2D playerBoxCollider;
-    Vector2 movementInput;
     [SerializeField] public Animator animator;
     [SerializeField] public SpriteRenderer playerRenderer;
     [SerializeField] AudioSource AudioSource;
-
+    // should be in a separate script 
     int ShiningCount = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [Header("Movement")]
+    public float moveHorizontal;
+    public float moveVertical;
+    public float speed;
+    Vector2 movementInput;
+
+    // boards to bits better jumping 
+    [Header("Jumping")]
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+    public bool isHoldingJump;
+    // GameJam Code
+    public bool isJumping;
+    [SerializeField] public float jumpforce;
+
+
+   
+    // damage logic, should probably be moved to another script 
+    [SerializeField] Vector2 hurtFling = new Vector2(4f, 4f);
+
+
+
+    private void OnEnable()
+    {
+        Health.onTakeDamage += Health_onTakeDamage;
+    }
+
+
+    private void OnDisable()
+    {
+        Health.onTakeDamage -= Health_onTakeDamage;
+    }
+    private void Health_onTakeDamage()
+    {
+        if (rb.linearVelocityX >= 0f)
+        {
+            animator.SetBool("isHurt", true);
+            rb.linearVelocity =  rb.linearVelocity * hurtFling;
+            rb.linearVelocityY = 0f;
+        }
+        else
+        {
+            rb.linearVelocity = rb.linearVelocity * hurtFling * -1f;
+            rb.linearVelocityY = 0f;// should always be positive
+            animator.SetBool("isHurt", true);
+        }
+    }
     void Start()
     {   
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -41,25 +78,26 @@ public class PlayerScript : MonoBehaviour
 
 
     private void FixedUpdate()
-    {   
+    {
         Debug.Log("Jump value is " + moveVertical);
         Debug.Log("isJumping: " + isJumping);
-
+        animator.SetBool("isHurt", false);
         Vector2 playerVelocity = new Vector2(movementInput.x * speed, rb.linearVelocityY);
         rb.linearVelocity = playerVelocity;
         if (rb.linearVelocityX == 0f)
         {
             animator.SetBool("isRunning", false);
+            
         }
-        if(rb.linearVelocityX >0f )
+        if (rb.linearVelocityX > 0f)
         {
             Debug.Log("current velocity is " + rb.linearVelocity);
             //facing right
             animator.SetBool("isRunning", true);
             playerRenderer.flipX = false;
-            
+
         }
-        else if(rb.linearVelocityX < 0f)
+        else if (rb.linearVelocityX < 0f)
         {
             // facing left
             Debug.Log("current velocity is " + rb.linearVelocity);
@@ -74,18 +112,36 @@ public class PlayerScript : MonoBehaviour
 
         // Jump logic
         if (isJumping == true)
-        {   
+        {
             //playerBody.velocity += new Vector2(0f, jumpSpeed);
             Debug.Log("attempted to jump");
             rb.AddForce(new Vector2(0f, (Physics2D.gravity.y * (jumpforce - 1)) * -1f), ForceMode2D.Impulse);
             isJumping = false;
+            animator.SetBool("isJumping", true);
             AudioSource.Play();
         }
 
-        
+        // falling logic
+        if ( rb.linearVelocityY < 0f)
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", true);
+        }
+
+        // landing logic 
+        if (hasLanded())
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
+        }
+
 
     }
-    
+
+    private bool hasLanded()
+    {
+        return rb.linearVelocityY < 0f && playerBoxCollider.IsTouchingLayers(LayerMask.GetMask("Platforms"));
+    }
 
     public void OnMove(InputAction.CallbackContext value)
     {
