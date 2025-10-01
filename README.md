@@ -1,81 +1,62 @@
 # Promethean Heat
 
-A 2D platformer game built in Unity, featuring multi-world exploration with unique environments including overworld, underworld, and underwater levels.
+A 2D platformer game built in Unity for **Saskatoon Game Jam 2025** (Sep 26-28). Created around the theme **"Bring the Heat"**, this game retells the ancient Greek myth of Prometheus, who dared to steal fire from the gods to give to humanity.
 
-## 🎮 Game Overview
+## Game Overview
 
-**Promethean Heat** is a 2D side-scrolling platformer that takes players on an adventure through diverse environments. The game features character movement mechanics, animated enemies, and multiple interconnected levels with distinct visual themes.
+**Promethean Heat** is a 2D side-scrolling platformer that follows the legendary tale of Prometheus on his quest to bring fire to humanity. Players journey through the three realms of Greek mythology, battling gods and collecting flame embers in a race against divine wrath. The game features character movement mechanics, animated enemies, and multiple interconnected levels with distinct mythological themes.
 
-## 👥 Authors
+## The Myth of Prometheus
+
+In ancient Greek mythology, Prometheus was a Titan who defied Zeus by stealing fire from Mount Olympus and giving it to humanity. This act of rebellion brought knowledge, warmth, and civilization to mortals, but also earned him the eternal wrath of the gods. Our game reimagines this classic tale as an epic platforming adventure through the three divine realms.
+
+## The Journey Through Three Realms
+
+### **Underworld - Hades' Domain**
+Prometheus begins his quest in the depths of the Underworld, navigating through Hades' dark caverns and lava-filled chambers. Here he must collect **Shining Pieces** (flame embers) while avoiding the dangers of the realm of the dead. Once enough embers are gathered, he faces **Hades** himself in an epic boss battle to escape the underworld.
+
+### **Underwater - Poseidon's Ocean**
+After defeating Hades, Prometheus finds himself in Poseidon's underwater domain. Swimming through bubble-filled depths and ancient temples, he continues collecting Shining Pieces while navigating the treacherous waters. The journey culminates in a fierce battle against **Poseidon**, god of the seas.
+
+### **Overworld - Mount Olympus & Zeus**
+The final realm takes Prometheus to the surface world and up the mighty Mount Olympus. Climbing through caves and reaching the peak of the gods' dwelling, he prepares for the ultimate confrontation. At the summit, he faces **Zeus**, king of the gods, in the final battle to steal the divine flame and bring it back to humanity.
+
+## Authors
 
 - **[@RD2P](https://github.com/RD2P)**: Raphael De Los Reyes - [LinkedIn](https://www.linkedin.com/in/glennraphaeldlr)
 - **[@Weunbeatable](https://github.com/Weunbeatable)**: Josh Olatidoye - [LinkedIn](https://www.linkedin.com/in/joshua-o-b132aa93/)
 - **[@R4nd0mDude](https://github.com/R4nd0mDude)**: Mel
 - **[@mr200paul](https://github.com/mr200paul)**: Paul
 
-## ✨ Features
+## Features
 
-### Gameplay Mechanics
-- **Character Movement**: Smooth 2D character controls with running and jumping
-- **Physics-Based Movement**: Rigidbody2D-based player physics with customizable speed and jump force
-- **Platform Detection**: Ground detection system using layer masks
-- **Input System**: Modern Unity Input System implementation with customizable controls
+### Core Gameplay
+- **Mythological Storytelling**: Experience the classic Prometheus myth through interactive gameplay
+- **Progressive Realm Conquest**: Journey through three divine realms in sequential order
+- **Shining Pieces Collection**: Gather flame embers to unlock boss battles and progress through realms
+- **Epic Boss Battles**: Face off against the three most powerful Greek gods
 
 ### Game Worlds
-- **Overworld**: Surface-level environments with grass and natural elements
-- **Underworld**: Dark, underground levels with unique challenges  
-- **Underwater**: Submerged environments with bubble particle effects
-- **Main Hub**: Central area connecting different game worlds
-
-### Visual & Audio
-- **Pixel Art Style**: 8x8 pixel art assets with over 245+ unique tiles
-- **Animated Characters**: Player character with idle, run, jump, and fall animations
-- **Animated Enemies**: Flying demon enemies with idle and movement animations
-- **Particle Effects**: Fire, smoke, and bubble particle systems
-- **Audio System**: Integrated audio mixer with music and sound effects
-- **Parallax Backgrounds**: Multi-layer background system for depth
+- **Main Hub**: Central nexus where Prometheus begins his divine quest
+- **Underworld (Hades' Domain)**: Dark caverns filled with lava and shadows where the journey begins
+- **Underwater (Poseidon's Ocean)**: Submerged temples and bubble-filled depths of the sea god's realm
+- **Overworld (Mount Olympus)**: The sacred mountain leading to Zeus's throne and the divine flame
 
 ### Technical Features
-- **Scene Management**: Seamless level transitions and scene loading
-- **Tilemap System**: Efficient level design using Unity's tilemap system
-- **Animation Controllers**: Comprehensive animation system for characters and enemies
-- **Universal Render Pipeline**: Modern rendering with post-processing effects
+- **2D Platformer Mechanics**: Smooth character movement with running, jumping, and collision detection
+- **Physics-Based Movement**: Rigidbody2D system with customizable speed and jump parameters
+- **Animation System**: Comprehensive character states (idle, running, jumping, falling)
+- **Scene Management**: Seamless transitions between mythological realms
+- **Particle Effects**: Fire, smoke, and bubble systems enhancing the mythological atmosphere
 
-## 🎯 Controls
-
-| Action | Key Binding |
-|--------|-------------|
-| Move | Arrow Keys / WASD |
-| Jump | Spacebar |
-| Interact | E |
-| Attack | Left Click |
-| Sprint | Left Shift |
-| Progress/Start | Enter |
-
-## 🛠️ Technical Requirements
+## Technical Requirements
 
 ### Unity Version
-- **Unity 2022.3 LTS** or newer
-- **Universal Render Pipeline (URP)**
+- **Unity 6 LTS** or newer
 
-### Platform Support
-- Windows (Primary)
-- Additional platforms supported through Unity build system
+## Getting Started
 
-### Dependencies
-- Unity Input System Package
-- Universal Render Pipeline
-- TextMeshPro
-- 2D Tilemap Extras
-
-## 🚀 Getting Started
-
-### Prerequisites
-1. Install Unity Hub
-2. Install Unity 2022.3 LTS or newer
-3. Ensure Universal Render Pipeline is available
-
-### Setup Instructions
+### Setup Instructions (if you want to play around with the code)
 1. **Clone or Download** the project to your local machine
 2. **Open Unity Hub** and click "Add project from disk"
 3. **Navigate** to the `Promethean Heat` folder and select it
@@ -83,115 +64,30 @@ A 2D platformer game built in Unity, featuring multi-world exploration with uniq
 5. **Open the Main scene** from `Assets/Scenes/Main.unity`
 6. **Press Play** to start the game
 
-### Build Instructions
-1. Go to `File > Build Settings`
-2. Add scenes in the following order:
-   - Main.unity
-   - Overworld.unity
-   - Underworld.unity
-   - Underwater.unity
-3. Select your target platform
-4. Click "Build" and choose output directory
-
-## 📁 Project Structure
-
-```
-Assets/
-├── Art/                    # Visual assets and artwork
-│   ├── Animation/         # Character and enemy animations
-│   ├── Sprites/          # 2D sprites and textures
-│   ├── Tilemaps/         # Level tilemap assets
-│   └── Overworld/        # Overworld-specific art
-├── Audio/                 # Sound effects and music
-│   ├── Music/            # Background music tracks
-│   └── SFX/              # Sound effects
-├── Character/            # Character-related assets
-├── Environment/          # Environmental assets
-├── Gameplay/             # Gameplay-specific assets
-├── ParticleSystems/      # Particle effect prefabs
-├── Prefabs/              # Reusable game objects
-│   ├── Characters/       # Character prefabs
-│   └── Demon.prefab      # Enemy prefab
-├── Scenes/               # Game scenes
-│   ├── Main.unity        # Main menu/hub scene
-│   ├── Overworld.unity   # Surface world level
-│   ├── Underworld.unity  # Underground level
-│   └── Underwater.unity  # Underwater level
-├── Scripts/              # C# game scripts
-│   ├── PlayerScript.cs   # Player movement and controls
-│   ├── Demon.cs          # Enemy behavior
-│   └── LevelManagerScript.cs # Scene management
-└── Settings/             # Project configuration
-```
-
-## 🎨 Asset Credits
+## Asset Credits
 
 ### Art Assets
 - **BigManJD Asset Package**: 8x8 pixel art tiles, animated characters, and decorations
-- **Water Temple Assets**: Environmental artwork (Non-commercial license)
+- **Water Temple Assets**: Environmental artwork
 - **PixelFX Vol.1**: Fire and smoke particle effects
 
-### Technical Assets
-- **Unity Technologies**: Standard Unity packages and tools
-- **TextMeshPro**: Advanced text rendering system
-
-## 🔧 Development Notes
-
-### Key Scripts
-- **PlayerScript.cs**: Handles player movement, jumping, and input processing
-- **Demon.cs**: Controls enemy animation states
-- **LevelManager.cs**: Manages scene transitions and level progression
-
-### Input System
-The game uses Unity's new Input System with the following action maps:
-- Player movement (Vector2)
-- Jump action (Button)
-- Attack action (Button)  
-- Interact action (Button)
-- Sprint action (Button)
-
-### Physics Configuration
-- Player uses Rigidbody2D for physics-based movement
-- Ground detection via BoxCollider2D and layer masks
-- Customizable movement parameters (speed: 3f, jump force: 5f)
-
-## 🐛 Known Issues
+## Known Issues
 
 - Jump detection system may need refinement for edge cases
-- Some commented-out collision detection code in PlayerScript.cs
-- Level progression system is basic (Enter key to advance)
+- Unfinished Underworld level
+- Level progression system is basic
+- Lacks final boss fight, win state, and end screen credits
 
-## 🚧 Future Enhancements
+## Future Enhancements
 
+- [ ] Complete Underworld level
+- [ ] Hades, Poseidon, Zeus boss fights
+- [ ] Win state
+- [ ] Main screen instructions
 - [ ] Enemy AI and combat system
-- [ ] Collectible items and power-ups
 - [ ] Save/load game system
 - [ ] Enhanced level progression mechanics
-- [ ] Mobile platform support
 - [ ] Additional sound effects and music tracks
 - [ ] Menu system improvements
 
-## 📄 License
-
-This project uses various assets under different licenses:
-- Unity-created content follows Unity's standard license
-- Third-party assets retain their original licenses (see individual asset folders)
-- Water Temple assets are for non-commercial use only
-- Code scripts are available for educational and non-commercial purposes
-
-## 🤝 Contributing
-
-This appears to be a learning/development project. If you'd like to contribute:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📞 Support
-
-For questions or issues related to this project, please check the Unity documentation or community forums for general Unity development help.
-
----
-
-**Built with Unity 2022.3 LTS** | **Genre**: 2D Platformer | **Status**: In Development
+**Built with Unity 6 LTS** | **Genre**: 2D Platformer | **Status**: In Development
