@@ -1,5 +1,7 @@
 # Promethean Heat
 
+<img width="1515" height="552" alt="promethean_heat" src="https://github.com/user-attachments/assets/4940ca42-3d34-4d8e-a68c-d957616a2fc5" />
+
 A 2D platformer game built in Unity for **Saskatoon Game Jam 2025** (Sep 26-28). Created around the theme **"Bring the Heat"**, this game retells the ancient Greek myth of Prometheus, who dared to steal fire from the gods to give to humanity.
 
 ## Game Overview
