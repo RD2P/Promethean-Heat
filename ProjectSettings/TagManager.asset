@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelManager
   - player_weapon
+  - projectile
   layers:
   - Default
   - TransparentFX
