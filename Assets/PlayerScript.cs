@@ -74,6 +74,14 @@ public class PlayerScript : MonoBehaviour
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveVertical = Input.GetAxisRaw("Vertical");
+
+        //grab the animator 
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("AttackA"))
+        {
+            Debug.Log("animation has ended");
+            animator.SetBool("isAttacking", false);
+
+        }
     }
 
 
@@ -91,7 +99,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (rb.linearVelocityX > 0f)
         {
-            Debug.Log("current velocity is " + rb.linearVelocity);
+          //  Debug.Log("current velocity is " + rb.linearVelocity);
             //facing right
             animator.SetBool("isRunning", true);
             playerRenderer.flipX = false;
@@ -100,7 +108,7 @@ public class PlayerScript : MonoBehaviour
         else if (rb.linearVelocityX < 0f)
         {
             // facing left
-            Debug.Log("current velocity is " + rb.linearVelocity);
+         //   Debug.Log("current velocity is " + rb.linearVelocity);
 
             animator.SetBool("isRunning", true);
             playerRenderer.flipX = true;
@@ -114,7 +122,7 @@ public class PlayerScript : MonoBehaviour
         if (isJumping == true)
         {
             //playerBody.velocity += new Vector2(0f, jumpSpeed);
-            Debug.Log("attempted to jump");
+
             rb.AddForce(new Vector2(0f, (Physics2D.gravity.y * (jumpforce - 1)) * -1f), ForceMode2D.Impulse);
             isJumping = false;
             animator.SetBool("isJumping", true);
@@ -175,5 +183,13 @@ public class PlayerScript : MonoBehaviour
     public void SetShiningCount(int shiningCount)
     {
         ShiningCount += shiningCount;
+    }
+
+    public void OnAttackA(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            animator.SetBool("isAttacking", true);
+        }
     }
 }
