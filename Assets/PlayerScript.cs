@@ -29,8 +29,17 @@ public class PlayerScript : MonoBehaviour
     public bool isJumping;
     [SerializeField] public float jumpforce;
 
+    [Header("Projectile")]
+    [SerializeField] public GameObject fireball;
+    [SerializeField] private GameObject spawnPoint;
+    [SerializeField] float _ProjectileSpeed = 5f;
 
-   
+    [Header("Audio")]
+    [SerializeField][Range(0, 1)] public float fireballSound = 0.25f;
+    [SerializeField] public AudioClip playerFireball;
+    [SerializeField][Range(0, 1)] public float staffSound = 0.25f;
+    [SerializeField] public AudioClip staffSwing;
+
     // damage logic, should probably be moved to another script 
     [SerializeField] Vector2 hurtFling = new Vector2(4f, 4f);
 
@@ -146,6 +155,12 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    public void FireProjectile()
+    {
+        GameObject Laser = Instantiate(fireball, spawnPoint.transform.position, Quaternion.identity);  // quaternion.identity means just use rotation you have don't change anything.
+        Laser.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(_ProjectileSpeed, 0f); // apply some velocity to this projectile
+        AudioSource.PlayClipAtPoint(playerFireball, Camera.main.transform.position, fireballSound); // use camera.main for displaying sound for better 3d audio management.
+    }
     private bool hasLanded()
     {
         return rb.linearVelocityY < 0f && playerBoxCollider.IsTouchingLayers(LayerMask.GetMask("Platforms"));
@@ -190,6 +205,7 @@ public class PlayerScript : MonoBehaviour
         if (value.started)
         {
             animator.SetBool("isAttacking", true);
+            AudioSource.PlayClipAtPoint(staffSwing, Camera.main.transform.position, staffSound);
         }
     }
 }

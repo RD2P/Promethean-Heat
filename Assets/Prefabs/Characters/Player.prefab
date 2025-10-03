@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &411081750493845426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3963587517445503069}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3963587517445503069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411081750493845426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.789, y: -0.301, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2328044805716505020}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3041088631562550149
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +528,7 @@ Transform:
   - {fileID: 8199785970647768006}
   - {fileID: 2741387853520513719}
   - {fileID: 3413024059131204488}
+  - {fileID: 3963587517445503069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1796464613468364249
@@ -655,6 +687,13 @@ MonoBehaviour:
   isHoldingJump: 1
   isJumping: 0
   jumpforce: 2.1
+  fireball: {fileID: 7964821119912110873, guid: c7b1ec9ac7354084d9d85d1bcc587c13, type: 3}
+  spawnPoint: {fileID: 411081750493845426}
+  _ProjectileSpeed: 5
+  fireballSound: 0.25
+  playerFireball: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
+  staffSound: 0.25
+  staffSwing: {fileID: 0}
   hurtFling: {x: 4, y: 4}
 --- !u!95 &7010812367891805085
 Animator:
