@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2525411510182674144}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,8 @@ MonoBehaviour:
   _impact_flash_duration: 0.3
   _impactMat: {fileID: 2100000, guid: 7f6ca4bfee7af7f41a0d707fea6a7323, type: 2}
   _originalMat: {fileID: 0}
+  knockback: 7
+  verticalKnockback: 1.5
 --- !u!114 &3867493469246224832
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileDamage
   knockback: 4
   verticalKnockback: 0.8
+  fireballLifetime: 4
 --- !u!95 &6133865881370329201
 Animator:
   serializedVersion: 7

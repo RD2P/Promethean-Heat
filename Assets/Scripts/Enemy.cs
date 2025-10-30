@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     DamageDealer dealdamage;
     [SerializeField] Material _impactMat;
     [SerializeField] Material _originalMat;
+    [SerializeField] float knockback = 4f; // this can be moved somehwere else in the future
+    [SerializeField] float verticalKnockback = 1.5f; // this can be moved somehwere else in the future
     void Start()
     {
 
@@ -50,9 +52,26 @@ public class Enemy : MonoBehaviour
         {
             Health enemyHealth = collision.gameObject.GetComponent<Health>();
             enemyHealth.DealDamage(dealdamage.DamageDealt());
+            KnockbackAdjustment(collision);
             // if you had a projectile
             // Destroy(gameObject);
         }
+    }
+
+    private void KnockbackAdjustment(Collider2D other)
+    {
+        Vector2 direction = (other.transform.position - transform.position).normalized;
+        Vector2 Updirection = (other.transform.position).normalized;
+
+        if (other.gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            //TODO if statement here to check trigger/flag on animation event to see if attack launches or not for vertical knockback
+            Rigidbody2D receiver = other.gameObject.GetComponent<Rigidbody2D>();
+            direction.y = verticalKnockback;
+            receiver.AddForce(direction * knockback, ForceMode2D.Impulse /*+ weaponProperties.SetKnockback())*/);
+            //   Debug.Log("current sitting value is " + weaponProperties.AddedKnockbackValue);
+        }
+
     }
 
     public void PlayImpactEffect()
