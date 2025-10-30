@@ -40,8 +40,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField][Range(0, 1)] public float staffSound = 0.25f;
     [SerializeField] public AudioClip staffSwing;
 
-    // damage logic, should probably be moved to another script 
-    [SerializeField] Vector2 hurtFling = new Vector2(4f, 4f);
 
 
 
@@ -57,18 +55,8 @@ public class PlayerScript : MonoBehaviour
     }
     private void Health_onTakeDamage()
     {
-        if (rb.linearVelocityX >= 0f)
-        {
-            animator.SetBool("isHurt", true);
-            rb.linearVelocity =  rb.linearVelocity * hurtFling;
-            rb.linearVelocityY = 0f;
-        }
-        else
-        {
-            rb.linearVelocity = rb.linearVelocity * hurtFling * -1f;
-            rb.linearVelocityY = 0f;// should always be positive
-            animator.SetBool("isHurt", true);
-        }
+        animator.SetBool("isHurt", true);
+        
     }
     void Start()
     {   
@@ -81,24 +69,24 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
-
-        //grab the animator 
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("AttackA"))
+        //grab the animator and check to see if attacking
+        IsAttackFinished();
+        // grab the animator and check to see if done being hurt
+        if (IsHurtAnimationFinished())
         {
             Debug.Log("animation has ended");
-            animator.SetBool("isAttacking", false);
-
+            animator.SetBool("isHurt", false);
         }
     }
-
-
     private void FixedUpdate()
     {
-        Debug.Log("Jump value is " + moveVertical);
-        Debug.Log("isJumping: " + isJumping);
-        animator.SetBool("isHurt", false);
+        if (IsHurtAnimationFinished() == true)
+        {
+            movementInput.x = 0f;
+            /* moveHorizontal = Input.GetAxisRaw("Horizontal");
+             moveVertical = Input.GetAxisRaw("Vertical");*/
+        }
+
         Vector2 playerVelocity = new Vector2(movementInput.x * speed, rb.linearVelocityY);
         rb.linearVelocity = playerVelocity;
         if (rb.linearVelocityX == 0f)
@@ -154,12 +142,24 @@ public class PlayerScript : MonoBehaviour
 
 
     }
+    private void flipSprite()
+    {
 
+        bool PlayerhasHorizontalSpeed = Mathf.Abs(rb.linearVelocityX) > Mathf.Epsilon;
+
+        if (PlayerhasHorizontalSpeed)
+        {
+
+            transform.localScale = new Vector2(Mathf.Sign(rb.linearVelocityX), 1f);
+
+        }
+    }
     public void FireProjectile()
     {
         GameObject Laser = Instantiate(fireball, spawnPoint.transform.position, Quaternion.identity);  // quaternion.identity means just use rotation you have don't change anything.
-        Laser.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(_ProjectileSpeed, 0f); // apply some velocity to this projectile
-        AudioSource.PlayClipAtPoint(playerFireball, Camera.main.transform.position, fireballSound); // use camera.main for displaying sound for better 3d audio management.
+        Laser.GetComponent<Rigidbody2D>().AddForce(transform.forward * _ProjectileSpeed); // test for firing in the right direction 
+        //Laser.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(_ProjectileSpeed, 0f); // apply some velocity to this projectile
+        AudioSource.PlayOneShot(playerFireball, fireballSound); // use camera.main for displaying sound for better 3d audio management.
     }
     private bool hasLanded()
     {
@@ -205,7 +205,23 @@ public class PlayerScript : MonoBehaviour
         if (value.started)
         {
             animator.SetBool("isAttacking", true);
-            AudioSource.PlayClipAtPoint(staffSwing, Camera.main.transform.position, staffSound);
+            AudioSource.PlayOneShot(staffSwing, staffSound);
+        }
+    }
+
+    private bool IsHurtAnimationFinished()
+    {
+
+        return this.animator.GetCurrentAnimatorStateInfo(0).IsName("Hurt");
+    }
+
+    private void IsAttackFinished()
+    {
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("AttackA"))
+        {
+            Debug.Log("animation has ended");
+            animator.SetBool("isAttacking", false);
+
         }
     }
 }
